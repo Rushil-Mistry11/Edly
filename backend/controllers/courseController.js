@@ -90,6 +90,30 @@ const enrollCourse = async (req, res) => {
     }
 };
 
+// Inside controllers/courseController.js
+
+const unenrollCourse = async (req, res) => {
+    try {
+        const userId = req.user.id;
+        const { courseId } = req.body;
+
+        if (!courseId) {
+            return res.status(400).json({ success: false, message: "Course ID is required" });
+        }
+
+        const result = await Course.unenroll(userId, courseId);
+
+        if (result.rowsAffected === 0) {
+            return res.status(404).json({ success: false, message: "Enrollment record not found." });
+        }
+
+        res.status(200).json({ success: true, message: "Successfully unenrolled from course" });
+    } catch (err) {
+        res.status(500).json({ success: false, error: err.message });
+    }
+};
+
+
 const getMyCourses = async (req, res) => {
     try {
         const userId = req.user.id;
@@ -110,4 +134,4 @@ const getAdminEnrollments = async (req, res) => {
 };
 
 
-module.exports = { addCourse, deleteCourse, getAllCourses, enrollCourse, getMyCourses, getCourse ,getAdminEnrollments};
+module.exports = { addCourse, deleteCourse, getAllCourses, enrollCourse, getMyCourses, getCourse, getAdminEnrollments, unenrollCourse };

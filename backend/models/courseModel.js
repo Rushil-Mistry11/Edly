@@ -45,6 +45,13 @@ const Course = {
         return result[0][0];
     },
 
+
+    // Student : Unenroll from course
+    unenroll: async (userId, courseId) => {
+        const [rows] = await db.query('CALL sp_StudentUnenrollCourse(?, ?)', [userId, courseId]);
+        return rows[0];
+    },
+
     // Student: Get all enrolled courses
     getEnrolled: async (userId) => {
         const [result] = await db.query('CALL sp_GetStudentEnrolledCourses(?)', [userId]);

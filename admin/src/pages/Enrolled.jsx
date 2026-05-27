@@ -36,7 +36,7 @@ const Enrolled = () => {
     const filteredEnrollments = enrollments.filter(item =>
         item.student_name?.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.student_email?.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        item.course_title?.toLowerCase().includes(searchTerm.toLowerCase())
+        item.course_title?.toLowerCase().includes(searchTerm.toLowerCase()) 
     );
 
     // total revenue using reduce 
