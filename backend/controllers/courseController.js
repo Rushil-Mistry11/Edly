@@ -90,7 +90,6 @@ const enrollCourse = async (req, res) => {
     }
 };
 
-// Inside controllers/courseController.js
 
 const unenrollCourse = async (req, res) => {
     try {
