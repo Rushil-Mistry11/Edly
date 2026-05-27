@@ -77,7 +77,7 @@ const Enrolled = () => {
                         <DollarSign size={22} />
                     </div>
                     <div>
-                        <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">Course Value Volume</p>
+                        <p className="text-xs text-gray-400 uppercase font-bold tracking-wider">Revenue</p>
                         <h3 className="text-xl font-bold text-gray-800 mt-0.5">${totalRevenue.toFixed(2)}</h3>
                     </div>
                 </div>
